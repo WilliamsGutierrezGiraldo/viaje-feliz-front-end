@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 import './App.css';
 
 function App() {
@@ -19,6 +21,12 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+        Esto es una prueba
+        <DatePicker dateFormat="dd/MM/yyyy" minDate={new Date()}/>
+        <input className="form-check-input" type="radio" name="busquedaPor" id="searchBy3" />
+      </div>
+
     </div>
   );
 }
