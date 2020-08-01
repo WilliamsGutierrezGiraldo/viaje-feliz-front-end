@@ -2,31 +2,33 @@ import React from 'react';
 import logo from './logo.svg';
 import DatePicker from 'react-datepicker'
 import Vivienda from './components/Vivienda'
+import Navegacion from './components/Navegacion'
 import "react-datepicker/dist/react-datepicker.css";
 import './App.css';
 
 function App() {
   return (
-    /* <div className="pt-5 px-5"> */
+    /* <div classNameName="pt-5 px-5"> */
     <div className="App">
+      <Navegacion />
       <div className="row">
-        <div class="col-sm-6">
-          <Vivienda />
+        <div className="col-sm-6">
+          <Vivienda precioDiario={250.000} tipo={1}/>
         </div>
-        <div class="col-sm-6">
-          <Vivienda />
+        <div className="col-sm-6">
+          <Vivienda precioDiario={125.000} tipo={1}/>
         </div>
-        <div class="col-sm-6">
-          <Vivienda />
+        <div className="col-sm-6">
+          <Vivienda precioDiario={380.000} tipo={2}/>
         </div>
-        <div class="col-sm-6">
-          <Vivienda />
+        <div className="col-sm-6">
+          <Vivienda precioDiario={500.000} tipo={1}/>
         </div>
-        <div class="col-sm-6">
-          <Vivienda />
+        <div className="col-sm-6">
+          <Vivienda precioDiario={700.000} tipo={2}/>
         </div>
         {/* <DatePicker dateFormat="dd/MM/yyyy" minDate={new Date()}/> */}
-        {/* <input className="form-check-input" type="radio" name="busquedaPor" id="searchBy3" /> */}
+        {/* <input classNameName="form-check-input" type="radio" name="busquedaPor" id="searchBy3" /> */}
       </div>
 
     </div>
