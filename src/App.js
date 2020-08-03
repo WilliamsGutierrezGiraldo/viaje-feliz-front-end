@@ -41,9 +41,13 @@ export default class App extends Component {
               <Route exact path="/viviendas">
                 <Viviendas viviendas={this.state.listaViviendas}/>
               </Route>
-              <Route path="/viviendadetalle">
-                <ViviendaDetalle />
-              </Route>
+              <Route exact path="/viviendadetalle/:viviendaId" render={(props) => {
+                let idVivienda = parseInt(props.location.pathname.replace("/viviendadetalle/",""));
+                let informacion = this.state.listaViviendas.filter(vivienda => vivienda.id === idVivienda)[0];
+                return(
+                  <ViviendaDetalle informacion={informacion} />
+                )
+              }}/>
               <Route path="/" exact component={Bienvenida} />
             </Switch>
         </Router>

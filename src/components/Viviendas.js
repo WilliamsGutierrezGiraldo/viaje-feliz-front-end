@@ -9,7 +9,7 @@ export default function Viviendas(props) {
                     {
                         props.viviendas.map((vivienda) => (
                             <div className="col-sm-6" key={vivienda.id.toString()}>
-                                <Vivienda precioDiario={vivienda.precioDiario} tipo={vivienda.tipo} />
+                                <Vivienda informacion={vivienda} />
                             </div>
                         ))
                     }
