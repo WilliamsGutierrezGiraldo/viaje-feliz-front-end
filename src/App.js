@@ -19,12 +19,12 @@ export default class App extends Component {
   componentDidMount() {
 
     let listaViviendas = [
-      {"id": 1 , "tipo": 1, "precioDiario": 285.000, "ruta": "imagen-1"},
-      {"id": 2 , "tipo": 2, "precioDiario": 100.000, "ruta": "imagen-2"},
-      {"id": 3 , "tipo": 1, "precioDiario": 700.000, "ruta": "imagen-3"},
-      {"id": 4 , "tipo": 2, "precioDiario": 850.000, "ruta": "imagen-4"},
-      {"id": 5 , "tipo": 2, "precioDiario": 200.000, "ruta": "imagen-5"},
-      {"id": 6 , "tipo": 1, "precioDiario": 900.000, "ruta": "imagen-6"}
+      {"id": 1 , "tipo": 1, "precioDiario": 285.000, "ruta": "vivienda1-1"},
+      {"id": 2 , "tipo": 2, "precioDiario": 100.000, "ruta": "vivienda2-1"},
+      {"id": 3 , "tipo": 1, "precioDiario": 700.000, "ruta": "vivienda3-1"},
+      {"id": 4 , "tipo": 2, "precioDiario": 850.000, "ruta": "vivienda4-1"},
+      {"id": 5 , "tipo": 2, "precioDiario": 200.000, "ruta": "vivienda5-1"},
+      {"id": 6 , "tipo": 1, "precioDiario": 900.000, "ruta": "vivienda6-1"}
     ]
 
     this.setState({
