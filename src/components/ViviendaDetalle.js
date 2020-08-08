@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
 
-export class ViviendaDetalle extends Component {
+class ViviendaDetalle extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+
+        const {id, imagenes, precioDiario, tipo} = this.props.informacion;
+
         return (
             <div>
-                <h1>Este es el componente detallado de vivienda</h1>
+                <h1>Este es el componente detallado de vivienda:{imagenes[0]}</h1>
             </div>
         )
     }

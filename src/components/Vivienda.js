@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 export default function Vivienda(props) {
 
-    const {id, precioDiario, ruta, tipo} = props.informacion;
+    const {id, imagenes, precioDiario, tipo} = props.informacion;
 
     return (
         <div className="pt-3 px-3">
             <div className="card text-center">
-                <img src={`./imagenes/${ruta}.jpg`} width="629" height="350"/>
+                <img src={`./imagenes/${imagenes[0]}.jpg`} width="629" height="350"/>
                 <div className="card-body">
                     <h5 className="card-title">{tipo === 1 ? "Casa" : "Cabaña"}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">Precio Diario: ${precioDiario}</h6>
