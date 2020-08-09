@@ -22,7 +22,33 @@ class ViviendaDetalle extends Component {
                     </div>
                     <div className="card-body">
                         <h5 className="card-title">Precio Diario: ${precioMinimo}</h5>
-                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    Permite mascotas: {permiteMascotas === 1 ? "Sí" : "No"}
+                                </div>
+                                <div class="col-sm">
+                                    Aire acondicionado: {aireAcondicionado === 1 ? "Sí" : "No"}
+                                </div>
+                                <div class="col-sm">
+                                    Calefacción: {calefaccion === 1 ? "Sí" : "No"}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    Número de baños: {numeroBanios}
+                                </div>
+                                <div class="col-sm">
+                                    Número de habitaciones: {numeroHabitaciones}
+                                </div>
+                                <div class="col-sm">
+                                    Número de personas permitidas: {numeroPersonas}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="mt-5">
