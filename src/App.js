@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import DatePicker from 'react-datepicker';
-import Vivienda from './components/Vivienda';
 import Navegacion from './components/Navegacion';
 import Bienvenida from './components/Bienvenida'
+import Registro from './components/Registro'
 import {BrowserRouter as Router, Switch}  from 'react-router-dom';
 import "react-datepicker/dist/react-datepicker.css";
 import { Route } from 'react-router-dom';
@@ -72,6 +71,9 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/viviendas">
                 <Viviendas viviendas={this.state.listaViviendas}/>
+              </Route>
+              <Route exact path="/registro">
+                <Registro />
               </Route>
               <Route exact path="/viviendadetalle/:viviendaId" render={(props) => {
                 let idVivienda = parseInt(props.location.pathname.replace("/viviendadetalle/",""));

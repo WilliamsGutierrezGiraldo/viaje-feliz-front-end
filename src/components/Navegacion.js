@@ -14,7 +14,7 @@ export default function Navegacion() {
                             <Link className="nav-link" to="/viviendas">Viviendas</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Consultas</a>
+                            <Link className="nav-link" to="/registro">Registro</Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Otros</a>
