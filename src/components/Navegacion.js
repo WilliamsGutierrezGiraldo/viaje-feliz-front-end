@@ -10,14 +10,13 @@ export default function Navegacion() {
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            {/* <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a> */}
                             <Link className="nav-link" to="/viviendas">Viviendas</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/registro">Registro</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Otros</a>
+                            <Link className="nav-link" to="/consultas">Consulte sus reservas</Link>
                         </li>
                     </ul>
                 </div>

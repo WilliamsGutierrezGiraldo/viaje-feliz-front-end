@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DatePicker from "react-datepicker";
+import moment from 'moment';
 
 class ViviendaDetalle extends Component {
 
@@ -9,11 +10,22 @@ class ViviendaDetalle extends Component {
 
     state = {
         fechaInicial: new Date(),
-        fechaInicial: new Date(),
+        fechaFinal: new Date(),
         idVivienda: this.props.informacion.id,
         disponible: false,
         noDocumento: '',
         existePersona: false
+    }
+
+    limpiarFormulario = () => {
+        this.setState({
+            fechaInicial: new Date(),
+            fechaFinal: new Date(),
+            idVivienda: this.props.informacion.id,
+            disponible: false,
+            noDocumento: '',
+            existePersona: false
+        })
     }
 
     handleChangeFechaInicial = (e) => {
@@ -61,8 +73,54 @@ class ViviendaDetalle extends Component {
                 listaResponse = response;
                 (listaResponse.length > 0 ? this.setState({existePersona: true}) : this.setState({existePersona: false}))
 
+                if (listaResponse.length > 0) {
+                    this.setState({existePersona: true})
+                    this.guardarReserva();
+                } else {
+                    this.limpiarFormulario();
+                    alert("El documento no se encuentra registrado, por favor, regístrese...")
+                }
+
             })
             .catch(error => console.log(error))
+
+    }
+
+    guardarReserva = () => {
+
+        let url = `http://localhost:8080/reservas/guardarReserva`;
+
+
+        const reserva = {
+            mascota: this.props.informacion.permiteMascotas,
+            valorParcial: 0,
+            fechaInicio: this.state.fechaInicial,
+            fechaFin: this.state.fechaFinal,
+            valorTotal: this.props.informacion.precioMinimo,
+            numeroPersonas: this.props.informacion.numeroPersonas,
+            fkVivienda: this.props.informacion.id,
+            fkPersona: this.state.noDocumento,
+            estado: 0
+        }
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(reserva),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => {
+
+            if (response === 1) {
+                this.limpiarFormulario();
+                alert("Reserva registrada...")
+            } else {
+                alert("No se ha podido registrar la reserva, intente nuevamente")
+            }
+            
+        });
 
     }
 
@@ -177,13 +235,13 @@ class ViviendaDetalle extends Component {
                         <hr/>
                         <div className="row justify-content-md-center">
                             <div className="col-md-2">
-                                <button type="submit" className="btn btn-success text-uppercase font-weight-bold">Buscar</button>
+                                <button type="submit" className="btn btn-success text-uppercase font-weight-bold">
+                                    Confirmar reserva
+                                </button>
                             </div>
                         </div>
+                        <hr/>
                     </form>
-                }
-                {
-                    
                 }
             </React.Fragment> 
         )
