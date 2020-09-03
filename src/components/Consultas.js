@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
+import moment from 'moment';
+import 'moment/locale/es';
 
 export default class Consultas extends Component {
+
+    
+    constructor(props) {
+        super(props);
+        moment.locale('es');
+        
+    }
 
     state = {
         documentoIdentificacion: '',
@@ -48,6 +57,7 @@ export default class Consultas extends Component {
     }
 
     render() {
+        const format = `MMMM Do YYYY`;
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -97,8 +107,8 @@ export default class Consultas extends Component {
                                     <td>{reserva.valorParcial}</td>
                                     <td>{reserva.valorTotal}</td>
                                     <td>{reserva.mascota}</td>
-                                    <td>{reserva.fechaInicio}</td>
-                                    <td>{reserva.fechaFin}</td>
+                                    <td>{ moment(reserva.fechaInicio).format( format ) }</td>
+                                    <td>{ moment(reserva.fechaFin).format( format ) }</td>
                                     <td>{reserva.numeroPersonas}</td>
                                     <td>{reserva.fkVivienda}</td>
                                     <td>{reserva.fkPersona}</td>

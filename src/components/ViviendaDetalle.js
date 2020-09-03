@@ -6,6 +6,7 @@ class ViviendaDetalle extends Component {
 
     constructor(props) {
         super(props);
+        moment.locale('es');
     }
 
     state = {
@@ -88,15 +89,21 @@ class ViviendaDetalle extends Component {
 
     guardarReserva = () => {
 
+        let format = `MMMM Do YYYY`;
+
+        let initDate = moment(this.state.fechaInicial);
+        let endDate = moment(this.state.fechaFinal);
+
         let url = `http://localhost:8080/reservas/guardarReserva`;
 
-
+        debugger
         const reserva = {
             mascota: this.props.informacion.permiteMascotas,
             valorParcial: 0,
             fechaInicio: this.state.fechaInicial,
             fechaFin: this.state.fechaFinal,
-            valorTotal: this.props.informacion.precioMinimo,
+            valorTotal: this.props.informacion.precioMinimo * 
+                Math.round(endDate.diff(initDate,'days',true)),
             numeroPersonas: this.props.informacion.numeroPersonas,
             fkVivienda: this.props.informacion.id,
             fkPersona: this.state.noDocumento,
